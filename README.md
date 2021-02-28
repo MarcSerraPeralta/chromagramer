@@ -18,6 +18,7 @@ Suggested steps are:
 1. Install `midi2abc` ([guide](https://command-not-found.com/midi2abc))
 
 > :warning: **Check that the following command can be run on terminal**: `midi2abc -h`
+> 
 > This command is needed to transform MIDI files to txt files in `lib/midi2txt.py`. 
 
 
