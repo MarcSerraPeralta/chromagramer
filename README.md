@@ -1,6 +1,7 @@
 # Big Data Analysis of Music MIDI files
 
 Analysis of the chromagram, lenght (_L_) and vocabulary (_V_) of a given corpus of MIDI files. 
+The corpus used for our results is the [_Kunstderfuge_ dataset](http://www.kunstderfuge.com/). 
 
 
 ## Installation
