@@ -1,4 +1,4 @@
-# Big Data Analysis of Music MIDI files
+# Big Data Analysis of Music using MIDI files
 
 Analysis of the chromagram, lenght (_L_) and vocabulary (_V_) of a given corpus of MIDI files. 
 
