@@ -2,6 +2,7 @@
 
 Analysis of the chromagram, lenght (_L_) and vocabulary (_V_) of a given corpus of MIDI files. 
 
+The corpus must have the structure described in [`dat/README.md`](dat/README.md). 
 The corpus used for our results is the [_Kunstderfuge_ dataset](http://www.kunstderfuge.com/). 
 
 
@@ -14,23 +15,30 @@ Suggested steps are:
 1. The following folder structure will be produced by the repo. From the git folder:
     - `lib/`: contains all the scripts.
     - `dat/`: will contain all the corpus and extracted data.
-1. Copy _Kunstderfuge_ corpus inside `dat/` (see `dat/README.md` for further information). 
+1. Copy the corpus' folder inside `dat/` (see [`dat/README.md`](dat/README.md) for further information). 
 1. Install `midi2abc` ([guide](https://command-not-found.com/midi2abc))
 
 > :warning: **Check that the following command can be run on terminal**: `midi2abc -h`
 > 
-> This command is needed to transform MIDI files to txt files in `lib/midi2txt.py`. 
+> This command is needed to transform MIDI files to txt files in [`lib/midi2txt.py`](lib/midi2txt.py). 
 
 
 ## Running the code
 
-All the following instructions assume to run them from the git folder. 
+All the following instructions are assumed to be run from the git folder. 
 
-### Replicating of the results
+### Replicating the results (_Kunstderfuge_ corpus)
 
 Firstly, change the variable `corpus_folder` inside `script.py` to the _Kunstderfuge_ folder's name (or change the _Kunstderfuge_ folder's name to _midi_kunstderfuge_). 
 
 Secondly, execute:
+```
+python script.py
+```
+
+### Using any corpus
+
+Delete the lines of corpus' preparation in `script.py`. Change the variable `corpus_folder` inside `script.py` to the corpus folder's name. Finally, execute:
 ```
 python script.py
 ```
