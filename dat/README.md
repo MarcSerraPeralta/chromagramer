@@ -1,12 +1,12 @@
 The 'dat' folder must contain:
 - author_year.csv
-- folder with the _Kunstderfuge_ corpus
+- folder with the corpus
 
-The folder with the _Kunstderfuge_ corpus must have the following structure:
+The corpus' folder must have the following structure:
 ```
 .
 +-- author1
-|	+-- can-contain-tree-of-folders-inside
+|	+-- it-can-contain-a-tree-of-folders-inside-with-files
 |	+-- file1.extension
 |	+-- file2.extension
 |	+-- ...
