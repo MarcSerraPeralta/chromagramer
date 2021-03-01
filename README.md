@@ -11,7 +11,7 @@ The corpus used for our results is the [_Kunstderfuge_ dataset](http://www.kunst
 Suggested steps are:
 
 1. Clone repository.
-1. Create a conda environment (may use `environment.txt` file).
+1. Create a conda environment (may use `requirements.txt` file).
 1. The following folder structure will be produced by the repo. From the git folder:
     - `lib/`: contains all the scripts.
     - `dat/`: will contain all the corpus and extracted data.
