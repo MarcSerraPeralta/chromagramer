@@ -3,7 +3,7 @@
 Analysis of the chromagram, lenght (_L_) and vocabulary (_V_) of a given corpus of MIDI files. 
 
 The corpus must have the structure described in [`dat/README.md`](dat/README.md). 
-The corpus used for our results is the [_Kunstderfuge_ dataset](http://www.kunstderfuge.com/). 
+The corpus used for our results is the [Kunstderfuge dataset](http://www.kunstderfuge.com/) and its Zipf data can be found in `dat/zipf_midi_original.zip`. 
 
 
 ## Installation
