@@ -1,6 +1,31 @@
-# Big Data Analysis of Music using MIDI files
+# Heaps' Law and Vocabulary Richness in the History of Classical Music Harmony
 
-Analysis of the chromagram, lenght (_L_) and vocabulary (_V_) of a given corpus of MIDI files. 
+### Abstract
+
+Music is a fundamental human construct, and harmony provides the building blocks of musical language. Using the Kunstderfuge corpus of classical music, we analyze the historical evolution of the richness of harmonic vocabulary of 76 classical composers, covering almost 6 centuries. Such corpus comprises about 9500 pieces, resulting in more than 5 million tokens of music codewords. The fulfilment of Heaps' law for the relation between the size of the harmonic vocabulary of a composer (in codeword types) and the total length of his works (in codeword tokens), with an exponent around 0.35, allows us to define a relative measure of vocabulary richness that has a transparent interpretation. When coupled with the considered corpus, this measure allows us to quantify harmony richness across centuries, unveiling a clear increasing linear trend. In this way, we are able to rank the composers in terms of richness of vocabulary, in the same way as for other related metrics, such as entropy. We find that the latter is particularly highly correlated with our measure of richness. Our approach is not specific for music and can be applied to other systems built by tokens of different types, as for instance natural language.
+
+### Reference
+
+Serra-Peralta, M., Serra, J., & Corral, Á. (2021). *Heaps' Law and Vocabulary Richness in the History of Classical Music Harmony*.
+
+```
+@article{SerraPeralta2021ARXIV,
+author = {Serra-Peralta, M. and Serr{\`{a}}, J. and Corral, \'A.},
+journal = {ArXiv},
+title = {Heaps' Law and Vocabulary Richness in the History of Classical Music Harmony},
+volume = {2104.04143},
+year = {2021}
+}
+```
+
+### Links
+
+Paper: [https://arxiv.org/abs/2104.04143](https://arxiv.org/abs/2104.04143) (latest version)
+
+
+## Description
+
+Big Data analysis of music using MIDI files through the chromagram, lenght (_L_) and vocabulary (_V_). 
 
 The corpus must have the structure described in [`dat/README.md`](dat/README.md). 
 The corpus used for our results is the [Kunstderfuge dataset](http://www.kunstderfuge.com/) and its Zipf data can be found in `dat/zipf_midi_original.zip`. 
