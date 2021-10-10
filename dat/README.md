@@ -4,7 +4,7 @@ The 'dat' folder must contain:
 
 The corpus' folder must have the following structure:
 ```
-.
+corpus
 +-- author1
 |	+-- it-can-contain-a-tree-of-folders-inside-with-files
 |	+-- file1.extension
