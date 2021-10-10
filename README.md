@@ -6,17 +6,7 @@ Music is a fundamental human construct, and harmony provides the building blocks
 
 ### Reference
 
-Serra-Peralta, M., Serra, J., & Corral, Á. (2021). *Heaps' Law and Vocabulary Richness in the History of Classical Music Harmony*.
-
-```
-@article{SerraPeralta2021ARXIV,
-author = {Serra-Peralta, M. and Serr{\`{a}}, J. and Corral, \'A.},
-journal = {ArXiv},
-title = {Heaps' Law and Vocabulary Richness in the History of Classical Music Harmony},
-volume = {2104.04143},
-year = {2021}
-}
-```
+Serra-Peralta, M., Serrà, J. & Corral, Á. Heaps’ law and vocabulary richness in the history of classical music harmony. EPJ Data Sci. 10, 40 (2021). https://doi.org/10.1140/epjds/s13688-021-00293-8
 
 ### Links
 
