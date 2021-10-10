@@ -8,10 +8,6 @@ Music is a fundamental human construct, and harmony provides the building blocks
 
 Serra-Peralta, M., Serrà, J. & Corral, Á. Heaps’ law and vocabulary richness in the history of classical music harmony. EPJ Data Sci. 10, 40 (2021). https://doi.org/10.1140/epjds/s13688-021-00293-8
 
-### Links
-
-Paper: [https://doi.org/10.1140/epjds/s13688-021-00293-8](https://doi.org/10.1140/epjds/s13688-021-00293-8)
-
 
 ## Description
 
