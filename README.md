@@ -20,7 +20,7 @@ year = {2021}
 
 ### Links
 
-Paper: [https://arxiv.org/abs/2104.04143](https://arxiv.org/abs/2104.04143) (latest version)
+Paper: [https://doi.org/10.1140/epjds/s13688-021-00293-8](https://doi.org/10.1140/epjds/s13688-021-00293-8)
 
 
 ## Description
