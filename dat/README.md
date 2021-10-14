@@ -1,5 +1,5 @@
-The 'dat' folder must contain:
-- author_year.csv
+The `dat` folder must contain:
+- `author_year.csv`
 - folder with the corpus
 
 The corpus' folder must have the following structure:
