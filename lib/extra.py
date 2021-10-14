@@ -266,3 +266,30 @@ def zipf2note(zipf):
 	return 
 
 ########################################################################
+
+# FIND PIECES THAT HAVE LESS THAN A STIPULATED LENGTH
+
+def get_short_pieces(INDIR, path, fname, OUTDIR, ARGS, intranet):
+	"""
+	Returns intranet with the full path+name of the pieces with L <= Lmin. Saves the pieces in 'output_file_name'. 
+	INDIR = folder containing all the files with containing the continuous chromagrams to analyse
+	ARGS = [Lmin, output_file_name]
+	
+	When used in 'main.dataset' function:
+	- POSTFUNCT = 'post_get_hist_keys'
+	- no need to determine OUTDIR or PREFUNCT
+	"""
+	Lmin = ARGS[0]
+	f = open(INDIR + "/" + path + fname, "r")
+	chromagram = f.read()
+	f.close()
+	L = len(chromagram.split("\n"))-1
+	if L <= Lmin:
+		intranet += [INDIR + "/" + path + fname]
+	return intranet
+
+def post_get_short_pieces(INDIR, FUNCTION, OUTDIR, ARGS, intranet):
+	f = open(ARGS[1], "w")
+	f.write("\n".join(intranet))
+	f.close()
+	return []
