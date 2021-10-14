@@ -11,7 +11,7 @@ Serra-Peralta, M., Serrà, J. & Corral, Á. Heaps’ law and vocabulary richness
 
 ## Description
 
-Big Data analysis of music using MIDI files through the chromagram, lenght (_L_) and vocabulary (_V_). 
+Big Data analysis of music using MIDI files through their lenght (_L_), vocabulary (_V_) and token-type distribution (_f(n)_). 
 
 The corpus must have the structure described in [`dat/README.md`](dat/README.md). 
 The corpus used for our results is the [Kunstderfuge dataset](http://www.kunstderfuge.com/) and its Zipf data can be found in `dat/zipf_midi_original.zip`. 
@@ -22,7 +22,7 @@ The corpus used for our results is the [Kunstderfuge dataset](http://www.kunstde
 Suggested steps are:
 
 1. Clone repository.
-1. Create a conda environment (may use `requirements.txt` file).
+1. Create a conda environment (see `requirements.txt` file).
 1. The following folder structure will be produced by the repo. From the git folder:
     - `lib/`: contains all the scripts.
     - `dat/`: will contain all the corpus and extracted data.
@@ -34,25 +34,30 @@ Suggested steps are:
 > This command is needed to transform MIDI files to txt files in [`lib/midi2txt.py`](lib/midi2txt.py). 
 
 
-## Running the code
-
-All the following instructions are assumed to be run from the git folder. 
-
-### Replicating the results (_Kunstderfuge_ corpus)
+## Replicating the results (_Kunstderfuge_ corpus)
 
 Firstly, change the variable `corpus_folder` inside `script.py` to the _Kunstderfuge_ folder's name (or change the _Kunstderfuge_ folder's name to _midi_kunstderfuge_). 
 
 Secondly, execute:
 ```
 python script.py
+python lib/fit_max_likelihood.py
+python lib/select_best_distribution.py
 ```
 
-### Using any corpus
+> :bookmark: All functions can be used for other datasets following the same structure as defined in [`dat/README.md`](dat/README.md). 
+>
+> The only change needed in [`script.py`](script.py) is to delete the `prepare_corpus(...)` line. 
 
-Delete the lines of corpus' preparation in `script.py`. Change the variable `corpus_folder` inside `script.py` to the corpus folder's name. Finally, execute:
-```
-python script.py
-```
+
+## Structure of the code
+
+The code has two steps:
+
+1. Extracting L,V and frequency counts
+1. Performing fits to the probability density function of the frequency
+
+> :warning: All the following instructions are assumed to be run from the git folder. 
 
 ### Using `main.database` function (in `lib/main.py`)
 
@@ -71,43 +76,35 @@ The variable `ARGS` is a list to pass extra arguments to `FUNCTION` function.
 
 For further information check `functionexample`, `prefunct`, `postfunct` and `database` functions in `lib/main.py`. 
 
+### Using `lib/fit_max_likelihood.py`
+
+This script fits (1) truncated power-law, (2) untruncated power-law, and (3) truncated lognormal pdf in a given random variable. 
+The fit is accepted if the p-value is greater or equal than a threshold (0.20 by default). 
+The outputs of the fitting functions are:
+
+1. `truncated_power_law`: a, b, beta, beta_error, pvalue, N, xmax
+1. `untruncated_power_law`: a, beta, beta_error, pvalue, N, xmax
+1. `untruncated_power_law_2`: a, b, beta, beta_error, pvalue, N, xmax
+1. `truncated_lognormal`: a, mu, mu_error, sigma, sigma_error, pvalue, N, xmax
+
+where `a` is the lower limit of the fitting, `b` is the upper limit of the fit, `beta` is the power-law exponent (`beta_error` its error), `pvalue` is the p-value of the Montecarlo simulations, `N` is the number of data points fitted, `xmax` is the maximum value of the data points, `mu` is the mean of the lognormal (`mu_error` its error), and `sigma` is the standard deviation of the lognormal (`sigma_error` its error).  
+
+The `untruncated_power_law` performs an untruncated-power-law likelihood fit and `untruncated_power_law_2` performs a truncated-power-law likelihood fit with `b=1E100`. 
+
 
 ## Results
 
-Brief description of the output files and their format. 
+Brief description of the output files and their format can be found in [`description_results.md`](description_results.md).
 
-### 1) Continous chromagram folder (`chr_kunstderfuge` by default)
-
-It has the same tree structure as _Kunstderfuge_ corpus' folder and its files have the same names as the input ones. 
-The structure of each file is:
-1. First line: time in which the piece changes its key signature (`.2f` separated by spaces).
-1. Second line: time and bar of the different parts of the piece (`.2f X/Y` separated by two spaces).
-1. Rest of the lines: continous chromagran with chroma duration specified by `Atmin` in `lib/txt2input.py` (12 `.2f` separated by spaces, each line).
-
-### 2) `zipf_authors` folder
-
-It contains the Zipf information of each author in the dataset (joined author's pieces). 
-
-For further information of the format, check `zipf2note` function in `lib/extra.py`. 
-
-### 3) `zipf_corpus_...` file
-
-Same structure as the files in `zipf_authors` folder. All corpus' pieces have been joined together for this Zipf. 
-
-### 4) `LV_authors_...` and `LV_pieces_...` files
-
-Both files contains the following information for each author/piece: `author L V`
-
-### 5) `table_LV...` and `table_richness...` files
-
-Check `LV_table` function in `lib/extra.py` and `LV2richness` function in `lib/LV2richness.py` respectively. 
-
-### 6) `histogram_keys.txt` and `histogram_keys.pdf`
-
-The txt file contains the key signature of each piece (separated by a space). 
-
-The pdf file is the histogram representation of the information in `histogram_keys.txt`. 
-
+For further data processing, there are some useful functions in [`lib/extra.py`](lib/extra.py):
+1. `get_Ltotal`: returns total L of a Zipf or LV file.
+1. `get_Vtotal`: returns total V of a Zipf or LV file.
+1. `get_hist_keys`: saves the key counts of all database in `histogram_keys.txt` file. 
+1. `plot_hist_keys`: plots a histogram of `histogram_keys.txt` file. 
+1. `LV_table`: creates CSV table containing: Author, Birth, Death, L, V, #pieces.
+1. `LV_regression`: returns the linear-regression parameters of logV vs logL. 
+1. `cdw2note`: returns the musical notes of a binary codeword. 
+1. `zipf2note`: returns the musical notes of a Zipf file. 
 
 ## Notes
 
