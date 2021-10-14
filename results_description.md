@@ -13,7 +13,7 @@ The structure of each file is:
 
 ## `zipf_authors` folder
 
-It contains the Zipf information of each author in the dataset (aggregated author's pieces). 
+It contains the Zipf information (meaning the codeword's type frequencies) of each author in the dataset (aggregated author's pieces). 
 Each row of the file has the token and types of each codeword (sorted descending):
 ```
 100010010000 1659     # codeword 100010010000 appears with absolute frequency = 1659
@@ -30,11 +30,13 @@ Each row of the file has the token and types of each codeword (sorted descending
 
 It contains the full path and name of the pieces with `L <= Lmin` (see [`script.py`](script.py))
 
-## `zipf_corpus_(...).txt` file (`zipf_corpus_transposed_1-00_0-1000.txt` by default)
+## `zipf_corpus_(...).txt` file 
 
 It is the aggregation of all pieces in the input folder, with the same structure as the files in `zipf_authors` folder. 
 
-## `LV_authors_(...).txt` and `LV_pieces_(...).txt` files (`LV_authors_transposed_1-00_0-1000` and `LV_pieces_transposed_1-00_0-1000` by default)
+By default, its name is `zipf_corpus_transposed_1-00_0-1000.txt`. 
+
+## `LV_authors_(...).txt` and `LV_pieces_(...).txt` files 
 
 Both files contain the following information for each author/piece: `author L V`:
 ```
@@ -42,6 +44,7 @@ albeniz 42313 1666
 albinoni 29245 711
 albrechtsberger 4760 511
 ```
+By default, their names are `LV_authors_transposed_1-00_0-1000` and `LV_pieces_transposed_1-00_0-1000`. 
 
 ## `zipf_authors_(...).csv` files 
 
